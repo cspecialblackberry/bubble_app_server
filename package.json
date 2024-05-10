@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@apollo/server": "^4.10.4",
+    "@chakra-ui/icons": "^2.1.1",
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "graphql": "^16.8.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.6.1",
+    "mongoose": "^8.3.3"
+  }
+}
