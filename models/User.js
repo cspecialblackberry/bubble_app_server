@@ -22,7 +22,8 @@ const userSchema = new Schema({
                 return /^#(?:[0-9a-fA-F]{3}){1,2}$/g.test(color)
             },
             message: 'Something went wrong!'
-        }
+        },
+        default: '#B9E5FF'
     },
     bio: {
         type: String,
@@ -30,6 +31,7 @@ const userSchema = new Schema({
     },
     avatar: {
         type: String,
+        default: '/bubble-favicon.svg'
     },
     posts: [postSchema],
     friends: [mongoose.ObjectId],
