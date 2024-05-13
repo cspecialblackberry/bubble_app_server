@@ -11,6 +11,14 @@ const resolvers = {
         user: async (parent, { _id }) => {
             return await User.findById(_id)
         },
+        userSearch: async (parent, { username }) => {
+            let username1 = "Reed3"
+            await User.find({"username":{'$regex':username1,'$options':'i'}})
+            .then(data => {
+                return data
+            })
+            //return await User.find({"username":{'$regex':username1,'$options':'i'}})
+        },
         posts: async () => {
             return await Post.find({}).populate("replies")
         },
@@ -25,7 +33,6 @@ const resolvers = {
     Mutation: {
         //working
         addUser: async (parent, { username, password, name }) => {
-            console.log('adding')
             return await User.create({ username, password, name })
         },
         //working
@@ -115,7 +122,8 @@ const resolvers = {
                 user: userId,
                 responseText
             })
-            await Post.findByIdAndUpdate(postId, {$set: {replies: post.replies}})
+            console.log(post)
+            return await Post.findByIdAndUpdate(postId, {$set: {replies: post.replies}})
         },
         deleteReply: async (parent, { postId, replyId }) => {
             const post = await Post.findById(postId)

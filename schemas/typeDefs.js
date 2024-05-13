@@ -32,6 +32,7 @@ type Auth {
 type Query {
     users: [User]
     user(_id: ID!): User
+    userSearch(username:String!): User
     posts: [Post]
     post(_id: ID!): Post
     replies: Response
@@ -45,8 +46,8 @@ type Mutation {
     login(username: String!, password: String!): Auth
     addPost(userId: ID!, postText: String!): Post
     deletePost(userId: ID!, postId: ID!): Post
-    addReply(postId: ID!, userId: ID!, responseText: String!): Post
-    deleteReply(postId: ID!, replyId: ID!): Post
+    addReply(postId: ID!, userId: ID!, responseText: String!): Response
+    deleteReply(postId: ID!, replyId: ID!): Response
 }
 `;
 
